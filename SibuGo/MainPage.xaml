@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SibuGo.MainPage"
+             BackgroundColor="#25B1FF">
+
+    <Grid RowSpacing="0">
+        <!-- Main Content -->
+        <ScrollView>
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Search Bar in Row 0 -->
+                <Frame CornerRadius="60" Grid.Row="0" Grid.Column="0" Margin="10,45,0,0" Padding="0">
+                    <SearchBar x:Name="searchBar" Placeholder="Search" TextChanged="OnButtonPressed" />
+                </Frame>
+
+                <!-- Prof Button in Row 0 -->
+                <ImageButton CornerRadius="30" BackgroundColor="Transparent"
+                             Grid.Row="0" Grid.Column="1" Margin="5,45,0,0"
+                             Clicked="OnButtonprofClick"
+                             Source="Image/prof.png" HeightRequest="45" WidthRequest="60" />
+
+                <!-- Category Label in Row 1 -->
+                <Label Text="Category" HorizontalOptions="Start"
+                       FontSize="20" FontAttributes="Bold"
+                       Grid.Row="1" Grid.Column="0" Margin="15,17,0,0" TextColor="White"/>
+
+                <!-- Buttons and Labels in Row 2 -->
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="0,-1,0,0">
+                    <StackLayout>
+                        <ImageButton Source="Image/pack.png" Padding="12" Margin="15,0,15,0" WidthRequest="80" HeightRequest="80" CornerRadius="28" Clicked="OnButtonpackClick" BackgroundColor="White" />
+                        <Label Text="Package" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="0,-6,2,0"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ImageButton Source="Image/rest.png" Padding="1"  Margin="5,11,0,0" WidthRequest="60" HeightRequest="60" CornerRadius="28" Clicked="OnButtonrestClick" BackgroundColor="White" />
+                        <Label Text="Restaurant" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="4,4,0,0" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ImageButton Source="Image/hotl.png" Padding="12" Margin="15,0,0,0" WidthRequest="83" HeightRequest="83" CornerRadius="28" Clicked="OnButtonhotlClick" BackgroundColor="White" />
+                        <Label Text="Hotel" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="15,-7,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ImageButton Source="Image/trip.png" Padding="7"  Margin="15,5,0,0" WidthRequest="75" HeightRequest="75" CornerRadius="30" Clicked="OnButtontripClick" BackgroundColor="White" />
+                        <Label Text="Trip" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="14,-4,0,0" />
+                    </StackLayout>
+                </StackLayout>
+
+                <!-- Destination label in Row 3 -->
+                <Label Text="Destination" FontSize="23" FontAttributes="Bold" Grid.Row="3" Margin="15,20,0,0"/>
+
+                <!-- Buttons in Row 4 -->
+                <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Margin="0,5,0,0">
+                    <Button x:Name="btnAll" Text="All" TextColor="#8A8A8A" WidthRequest="65" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="0,0,0,0" Pressed="OnButtonPressed" />
+                    <Button x:Name="btnHotel" Text="Hotel" TextColor="#8A8A8A" WidthRequest="100" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="2,0,0,0" Pressed="OnButtonPressed" />
+                    <Button x:Name="btnRestaurant" Text="Restaurant" TextColor="#8A8A8A" WidthRequest="100" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="2,0,0,0" Pressed="OnButtonPressed" />
+                    <Button x:Name="btnTrip" Text="Trip" TextColor="#8A8A8A" WidthRequest="100" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="2,0,0,0" Pressed="OnButtonPressed" />
+                </StackLayout>
+
+                <!-- Simple Horizontal Carousel -->
+                <ScrollView Orientation="Horizontal" Grid.Row="5" Grid.Column="0" Margin="5,20,-65,60">
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
+                            <!-- Your content for the first carousel item -->
+                        </Frame>
+
+                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
+                            <!-- Your content for the second carousel item -->
+                        </Frame>
+
+                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
+                            <!-- Your content for the third carousel item -->
+                        </Frame>
+
+                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
+                            <!-- Your content for the fourth carousel item -->
+                        </Frame>
+
+                        <!-- Add more carousel items as needed -->
+
+                    </StackLayout>
+                </ScrollView>
+
+                <!-- Label for Promotion under the carousel -->
+                <Label Text="Promotion" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start" Margin="15,30,0,0" Grid.Row="6" Grid.Column="0" />
+                
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>
