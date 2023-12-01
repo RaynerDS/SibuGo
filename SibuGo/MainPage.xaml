@@ -97,7 +97,7 @@
                 </ScrollView>
 
                 <!-- Label for Promotion under the carousel -->
-                <Label Text="Promotion" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start" Margin="15,30,0,0" Grid.Row="6" Grid.Column="0" />
+                <Label Text="Promotion" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start" Margin="15,60,0,0" Grid.Row="6" Grid.Column="0" />
                 
             </Grid>
         </ScrollView>
