@@ -48,12 +48,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\blue.png" />
 	  <None Remove="Resources\Images\dotnet_bot.svg" />
 	  <None Remove="Resources\Images\hotl.png" />
+	  <None Remove="Resources\Images\loca.png" />
 	  <None Remove="Resources\Images\pack.png" />
 	  <None Remove="Resources\Images\prof.png" />
 	  <None Remove="Resources\Images\rest.png" />
+	  <None Remove="Resources\Images\sibugo.png" />
 	  <None Remove="Resources\Images\trip.png" />
+	  <None Remove="Resources\Images\umbr.svg" />
+	  <None Remove="Resources\Images\view1.jpg" />
+	  <None Remove="Resources\Images\view2.jpg" />
+	  <None Remove="Resources\Images\view3.jpg" />
+	  <None Remove="Resources\Images\view4.jpg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -61,9 +69,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="LogInPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionSibuGoHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

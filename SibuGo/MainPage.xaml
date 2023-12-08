@@ -1,105 +1,259 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SibuGo.MainPage"
-             BackgroundColor="#25B1FF">
+             BackgroundColor="white">
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-    <Grid RowSpacing="0">
-        <!-- Main Content -->
-        <ScrollView>
-            <Grid Margin="10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
+            <StackLayout BackgroundColor="#25B1FF">
+                <!-- Search Bar and Profile Button in row 0 -->
+                <StackLayout Orientation="Horizontal" Grid.Row="0" HorizontalOptions="CenterAndExpand" Spacing="5" Margin="0,47,0,0">
+                    <Frame CornerRadius="30" BackgroundColor="White">
+                        <SearchBar x:Name="searchBar" Placeholder="Search" TextChanged="OnSearchButtonPressed" HeightRequest="20" WidthRequest="250" FontSize="15" />
+                    </Frame>
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <!-- Search Bar in Row 0 -->
-                <Frame CornerRadius="60" Grid.Row="0" Grid.Column="0" Margin="10,45,0,0" Padding="0">
-                    <SearchBar x:Name="searchBar" Placeholder="Search" TextChanged="OnButtonPressed" />
-                </Frame>
-
-                <!-- Prof Button in Row 0 -->
-                <ImageButton CornerRadius="30" BackgroundColor="Transparent"
-                             Grid.Row="0" Grid.Column="1" Margin="5,45,0,0"
-                             Clicked="OnButtonprofClick"
-                             Source="Image/prof.png" HeightRequest="45" WidthRequest="60" />
-
-                <!-- Category Label in Row 1 -->
-                <Label Text="Category" HorizontalOptions="Start"
-                       FontSize="20" FontAttributes="Bold"
-                       Grid.Row="1" Grid.Column="0" Margin="15,17,0,0" TextColor="White"/>
-
-                <!-- Buttons and Labels in Row 2 -->
-                <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Margin="0,-1,0,0">
-                    <StackLayout>
-                        <ImageButton Source="Image/pack.png" Padding="12" Margin="15,0,15,0" WidthRequest="80" HeightRequest="80" CornerRadius="28" Clicked="OnButtonpackClick" BackgroundColor="White" />
-                        <Label Text="Package" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="0,-6,2,0"/>
-                    </StackLayout>
-
-                    <StackLayout>
-                        <ImageButton Source="Image/rest.png" Padding="1"  Margin="5,11,0,0" WidthRequest="60" HeightRequest="60" CornerRadius="28" Clicked="OnButtonrestClick" BackgroundColor="White" />
-                        <Label Text="Restaurant" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="4,4,0,0" />
-                    </StackLayout>
-
-                    <StackLayout>
-                        <ImageButton Source="Image/hotl.png" Padding="12" Margin="15,0,0,0" WidthRequest="83" HeightRequest="83" CornerRadius="28" Clicked="OnButtonhotlClick" BackgroundColor="White" />
-                        <Label Text="Hotel" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="15,-7,0,0"/>
-                    </StackLayout>
-
-                    <StackLayout>
-                        <ImageButton Source="Image/trip.png" Padding="7"  Margin="15,5,0,0" WidthRequest="75" HeightRequest="75" CornerRadius="30" Clicked="OnButtontripClick" BackgroundColor="White" />
-                        <Label Text="Trip" HorizontalOptions="Center" FontSize="12" TextColor="White" FontAttributes="Bold" Margin="14,-4,0,0" />
-                    </StackLayout>
+                    <ImageButton CornerRadius="30" BackgroundColor="Transparent"
+                 Clicked="OnButtonprofClick"
+                 Source="Image/prof.png" HeightRequest="50" WidthRequest="70" />
                 </StackLayout>
 
-                <!-- Destination label in Row 3 -->
-                <Label Text="Destination" FontSize="23" FontAttributes="Bold" Grid.Row="3" Margin="15,20,0,0"/>
-
-                <!-- Buttons in Row 4 -->
-                <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Margin="0,5,0,0">
-                    <Button x:Name="btnAll" Text="All" TextColor="#8A8A8A" WidthRequest="65" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="0,0,0,0" Pressed="OnButtonPressed" />
-                    <Button x:Name="btnHotel" Text="Hotel" TextColor="#8A8A8A" WidthRequest="100" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="2,0,0,0" Pressed="OnButtonPressed" />
-                    <Button x:Name="btnRestaurant" Text="Restaurant" TextColor="#8A8A8A" WidthRequest="100" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="2,0,0,0" Pressed="OnButtonPressed" />
-                    <Button x:Name="btnTrip" Text="Trip" TextColor="#8A8A8A" WidthRequest="100" HeightRequest="40" BackgroundColor="White" CornerRadius="60" BorderColor="#8A8A8A" BorderWidth="2" Margin="2,0,0,0" Pressed="OnButtonPressed" />
+                <!-- Label for Category in row 1 -->
+                <StackLayout Grid.Row="1" Margin="20,20, 0, 0">
+                    <Label Text="Category" FontSize="20" FontAttributes="Bold" TextColor="White"/>
                 </StackLayout>
 
-                <!-- Simple Horizontal Carousel -->
-                <ScrollView Orientation="Horizontal" Grid.Row="5" Grid.Column="0" Margin="5,20,-65,60">
-                    <StackLayout Orientation="Horizontal" Spacing="20">
-                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
-                            <!-- Your content for the first carousel item -->
+                <!-- Image Buttons and Labels in the row 2 -->
+                <StackLayout Orientation="Horizontal" Grid.Row="2" Spacing="20" HorizontalOptions="Center" Margin="0,0,0,15">
+                    <StackLayout>
+                        <ImageButton Source="Image/pack.png" WidthRequest="80" HeightRequest="80" CornerRadius="30" Clicked="OnButtonpackClick" BackgroundColor="White" Padding="10"/>
+                        <Label Text="Package" TextColor="White" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ImageButton Source="Image/rest.png" WidthRequest="80" HeightRequest="80" CornerRadius="30" Clicked="OnButtonrestClick" BackgroundColor="White" Padding="10" />
+                        <Label Text="Restaurant" TextColor="White" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ImageButton Source="Image/hotl.png" WidthRequest="80" HeightRequest="80" CornerRadius="30" Clicked="OnButtonhotlClick" BackgroundColor="White" Padding="10" />
+                        <Label Text="Hotel" TextColor="White" HorizontalOptions="Center" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <ImageButton Source="Image/trip.png" WidthRequest="80" HeightRequest="80" CornerRadius="30" Clicked="OnButtontripClick" BackgroundColor="White" Padding="10" />
+                        <Label Text="Trip" TextColor="White" HorizontalOptions="Center" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- StackLayout with label for Destination in the row 3 -->
+            <StackLayout Grid.Row="3" HorizontalOptions="Start" Margin="20,20,0,0">
+                <Label Text="Destination" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+            </StackLayout>
+
+            <!-- StackLayout with buttons in the row 4 -->
+            <StackLayout Grid.Row="4" Spacing="2" Orientation="Horizontal" Margin="15">
+                <!-- Button 1: All -->
+                <Button x:Name="btnAll" Text="All" TextColor="#5b5b5b" CornerRadius="20" BackgroundColor="White" Clicked="OnAllButtonClicked" BorderWidth="1" BorderColor="#5b5b5b" WidthRequest="70">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#3ab8ff"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+
+                <!-- Button 2: Hotel -->
+                <Button x:Name="btnHotel" Text="Hotel" TextColor="#5b5b5b" CornerRadius="20" BackgroundColor="White" Clicked="OnExploreButtonClicked" BorderWidth="1" BorderColor="#5b5b5b" WidthRequest="90">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#3ab8ff"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+
+                <!-- Button 3: Restaurant -->
+                <Button x:Name="btnRestaurant" Text="Restaurant" TextColor="#5b5b5b" CornerRadius="20" BackgroundColor="White" Clicked="OnRestaurantButtonClicked" BorderWidth="1" BorderColor="#5b5b5b" WidthRequest="120">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#3ab8ff"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+
+                <!-- Button 4: Trip -->
+                <Button x:Name="btnTrip" Text="Trip" TextColor="#5b5b5b" CornerRadius="20" BackgroundColor="White" Clicked="OnTripButtonClicked" BorderWidth="1" BorderColor="#5b5b5b" WidthRequest="80">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Pressed">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="#3ab8ff"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Button>
+            </StackLayout>
+
+            <!-- StackLayout with label for Carousel in the row 5 -->
+            <StackLayout Grid.Row="5">
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Spacing="10" Margin="15,0,0,0">
+                        <Frame x:Name="frame1" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="260" WidthRequest="260" Padding="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" HeightRequest="140" WidthRequest="250">
+                                    <Image Source="view1.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="5" HeightRequest="18" WidthRequest="250" Margin="5,5,0,0">
+                                    <Image Source="loca.png" HeightRequest="10" WidthRequest="10"/>
+                                    <Label x:Name="loca1" Text="Sibu, Sarawak" FontSize="12" TextColor="White"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="70" HeightRequest="120" WidthRequest="250" Margin="0,10,0,0">
+                                    <Label x:Name="plac1" Text="Tua Pek Kong Temple" FontSize="16" TextColor="White" FontAttributes="Bold" WidthRequest="160" LineBreakMode="TailTruncation"/>
+                                    <Label x:Name="pric1" Text="$0" FontSize="16" TextColor="White" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
                         </Frame>
-
-                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
-                            <!-- Your content for the second carousel item -->
+                        <Frame x:Name="frame2" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="260" WidthRequest="260" Padding="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" HeightRequest="140" WidthRequest="250">
+                                    <Image Source="view2.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="5" HeightRequest="18" WidthRequest="250" Margin="5,5,0,0">
+                                    <Image Source="loca.png" HeightRequest="10" WidthRequest="10"/>
+                                    <Label x:Name="loca2" Text="Sibu, Sarawak" FontSize="12" TextColor="White"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="70" HeightRequest="120" WidthRequest="250" Margin="0,10,0,0">
+                                    <Label x:Name="plac2" Text="Sibu Heritage Centre" FontSize="16" TextColor="White" FontAttributes="Bold" WidthRequest="160" LineBreakMode="TailTruncation"/>
+                                    <Label x:Name="pric2" Text="$0" FontSize="16" TextColor="White" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
                         </Frame>
-
-                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
-                            <!-- Your content for the third carousel item -->
+                        <Frame x:Name="frame3" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="260" WidthRequest="260" Padding="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" HeightRequest="140" WidthRequest="250">
+                                    <Image Source="view3.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="5" HeightRequest="18" WidthRequest="250" Margin="5,5,0,0">
+                                    <Image Source="loca.png" HeightRequest="10" WidthRequest="10"/>
+                                    <Label x:Name="loca3" Text="Sibu, Sarawak" FontSize="12" TextColor="White"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="70" HeightRequest="120" WidthRequest="250" Margin="0,10,0,0">
+                                    <Label x:Name="plac3" Text="Wong Nai Siong Garden" FontSize="16" TextColor="White" FontAttributes="Bold" WidthRequest="160" LineBreakMode="TailTruncation"/>
+                                    <Label x:Name="pric3" Text="$0" FontSize="16" TextColor="White" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
                         </Frame>
-
-                        <Frame BackgroundColor="#219FE6" CornerRadius="15" HeightRequest="240" WidthRequest="240">
-                            <!-- Your content for the fourth carousel item -->
+                        <Frame x:Name="frame4" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="260" WidthRequest="260" Padding="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" HeightRequest="140" WidthRequest="250">
+                                    <Image Source="view4.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="5" HeightRequest="18" WidthRequest="250" Margin="5,5,0,0">
+                                    <Image Source="loca.png" HeightRequest="10" WidthRequest="10"/>
+                                    <Label x:Name="loca4" Text="Sibu, Sarawak" FontSize="12" TextColor="White"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="70" HeightRequest="120" WidthRequest="250" Margin="0,10,0,0">
+                                    <Label x:Name="plac4" Text="The Ark Cafe" FontSize="16" TextColor="White" FontAttributes="Bold" WidthRequest="160" LineBreakMode="TailTruncation"/>
+                                    <Label x:Name="pric4" Text="$0" FontSize="16" TextColor="White" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
                         </Frame>
-
-                        <!-- Add more carousel items as needed -->
-
+                        <Frame x:Name="frame5" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="260" WidthRequest="260" Padding="5">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Row="0" HeightRequest="140" WidthRequest="250">
+                                    <Image Source="view.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="5" HeightRequest="18" WidthRequest="250" Margin="5,5,0,0">
+                                    <Image Source="loca.png" HeightRequest="10" WidthRequest="10"/>
+                                    <Label x:Name="loca5" Text="Sibu, Sarawak" FontSize="12" TextColor="White"/>
+                                </StackLayout>
+                                <StackLayout Grid.Row="2" Orientation="Horizontal" Spacing="70" HeightRequest="120" WidthRequest="250" Margin="0,10,0,0">
+                                    <Label x:Name="plac5" Text="Beach Maldives" FontSize="16" TextColor="White" FontAttributes="Bold" WidthRequest="160" LineBreakMode="TailTruncation"/>
+                                    <Label x:Name="pric5" Text="$0" FontSize="16" TextColor="White" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
                     </StackLayout>
                 </ScrollView>
+            </StackLayout>
 
-                <!-- Label for Promotion under the carousel -->
-                <Label Text="Promotion" FontSize="24" FontAttributes="Bold" TextColor="White" HorizontalOptions="Start" Margin="15,60,0,0" Grid.Row="6" Grid.Column="0" />
-                
-            </Grid>
-        </ScrollView>
-    </Grid>
+            <!-- StackLayout with label for Destination in the row 6 -->
+            <StackLayout Grid.Row="6" HorizontalOptions="Start" Margin="20,20,0,0">
+                <Label Text="Promotion" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
+            </StackLayout>
+
+            <!-- StackLayout with label for Carousel in the row 7 -->
+            <StackLayout Grid.Row="7">
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" Spacing="10" Margin="15,60,0,0">
+                        <Frame x:Name="framee1" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="160" WidthRequest="360" Padding="5">
+                        </Frame>
+                        <Frame x:Name="framee2" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="160" WidthRequest="360" Padding="5">
+                        </Frame>
+                        <Frame x:Name="framee3" CornerRadius="10" BackgroundColor="#25B1FF" HeightRequest="160" WidthRequest="360" Padding="5">
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
 </ContentPage>
